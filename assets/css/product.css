@@ -1,0 +1,285 @@
+/* ===============================
+   CONTAINER
+================================ */
+.product-container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 60px 24px 80px;
+    font-family: "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+    color: #111;
+}
+
+/* ===============================
+   FILTER BAR – LUXURY CAPSULE
+================================ */
+.filter-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-bottom: 40px;
+}
+
+.filter-item {
+    position: relative;
+}
+
+.filter-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .3px;
+
+    border: 1px solid #e6e6e6;
+    border-radius: 999px;
+    background: #fff;
+
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.filter-label:hover {
+    border-color: #111;
+    box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+
+/* ===============================
+   DROPDOWN – FLOATING PANEL
+================================ */
+.filter-dropdown {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+
+    min-width: 210px;
+    padding: 8px 0;
+    list-style: none;
+
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.18);
+
+    display: none;
+    z-index: 9999;
+}
+
+.filter-item.active .filter-dropdown {
+    display: block;
+}
+
+.filter-dropdown li {
+    padding: 11px 18px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.filter-dropdown li:hover {
+    background: #f6f6f6;
+}
+
+/* Selected */
+.filter-dropdown li.selected {
+    background: linear-gradient(135deg, #000, #222);
+    color: #fff;
+    font-weight: 500;
+}
+
+.filter-dropdown li.selected::after {
+    content: "✓";
+    float: right;
+    font-size: 12px;
+}
+
+/* ===============================
+   ACTIVE FILTER TAGS – GOLD TOUCH
+================================ */
+.active-filters {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: -10px 0 55px;
+}
+
+.active-filter {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 8px 18px;
+    border-radius: 999px;
+
+    background: linear-gradient(135deg, #111, #2a2a2a);
+    color: #fff;
+
+    font-size: 12.5px;
+    letter-spacing: .4px;
+
+    cursor: pointer;
+    transition: all .25s ease;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,.22);
+}
+
+.active-filter::after {
+    content: "✕";
+    font-size: 11px;
+    opacity: .8;
+}
+
+.active-filter:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(0,0,0,.3);
+}
+
+/* Clear all */
+.clear-all {
+    padding: 8px 18px;
+    border-radius: 999px;
+
+    background: #fff;
+    border: 1px solid #ddd;
+
+    font-size: 12.5px;
+    cursor: pointer;
+    transition: all .25s ease;
+}
+
+.clear-all:hover {
+    background: #111;
+    color: #fff;
+    border-color: #111;
+}
+
+/* ===============================
+   PRODUCT GRID – LUXURY RHYTHM
+================================ */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 56px 34px;
+    margin: 50px auto;
+    align-items: stretch;
+}
+
+/* ===============================
+   PRODUCT CARD
+================================ */
+.product-card {
+    max-width: 200px;
+    margin: 0 auto;
+
+    text-align: center;
+    text-decoration: none;
+    color: #111;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transition: transform .35s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+}
+
+/* IMAGE */
+.product-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: contain;
+    margin-bottom: 16px;
+    transition: transform .4s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.08);
+}
+
+/* NAME */
+.product-card h3 {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.45;
+    letter-spacing: 0.2px;
+
+    min-height: 42px;
+    max-height: 42px;
+    overflow: hidden;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    text-overflow: ellipsis;
+}
+
+/* PRICE */
+.product-card p {
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: auto;
+    color: #111;
+}
+
+/* ===============================
+   PAGINATION – MINIMAL LUXURY
+================================ */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 80px;
+}
+
+.pagination a {
+    padding: 9px 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+
+    font-size: 13px;
+    text-decoration: none;
+    color: #111;
+
+    transition: all .25s ease;
+}
+
+.pagination a.active,
+.pagination a:hover {
+    background: #111;
+    color: #fff;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 1200px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .product-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+}

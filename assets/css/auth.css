@@ -1,0 +1,247 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    margin: 0;
+    background: #f5f5f5;
+}
+
+.auth-container {
+    display: flex;
+    height: 100vh;
+}
+
+/* LEFT: FORM */
+.auth-form {
+    width: 40%;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.auth-box {
+    width: 80%;
+    max-width: 400px;
+}
+
+.auth-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.auth-box input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.auth-box button {
+    width: 100%;
+    padding: 12px;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.auth-box button:hover {
+    background: #333;
+}
+
+.auth-box p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.auth-box a {
+    color: #000;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* RIGHT IMAGE */
+.auth-image {
+    width: 60%;
+    height: 100%;
+    overflow: hidden; /* tránh tràn ảnh */
+}
+
+.auth-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 🔥 QUAN TRỌNG */
+}
+/* MOBILE */
+@media (max-width: 768px) {
+    .auth-image {
+        display: none;
+    }
+    .auth-form {
+        width: 100%;
+    }
+}
+
+.auth-error {
+    margin: 14px 0;
+    padding: 12px 16px;
+    background: #faf7f2;
+    border-left: 4px solid #c8a165; /* gold luxury */
+    color: #6b4f1d;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 6px;
+    line-height: 1.5;
+}
+
+.auth-actions {
+    margin-top: 18px;
+    text-align: center;
+}
+
+.back-home {
+    display: inline-block;
+    font-size: 14px;
+    color: #888;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.back-home:hover {
+    color: #000;
+    text-decoration: underline;
+}
+
+/* =========================
+   DATE INPUT – INHERIT STYLE
+========================= */
+
+.auth-box input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+
+    background: #fff;
+    color: #111;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-family: inherit;
+
+    outline: none;
+    transition: all .25s ease;
+
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Focus */
+.auth-box input[type="date"]:focus {
+    border-color: #000000;
+}
+
+/* Calendar icon */
+.auth-box input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: .7;
+    cursor: pointer;
+}
+
+.auth-box input[type="date"]::-webkit-calendar-picker-indicator:hover {
+    opacity: 1;
+}
+
+/* =========================
+   SELECT – GENDER (INHERIT)
+========================= */
+
+.auth-box select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+
+    background: #fff;
+    color: #111;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 14px;
+    font-family: inherit;
+
+    outline: none;
+    cursor: pointer;
+    transition: all .25s ease;
+
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    /* Arrow custom (nhẹ, không phá layout) */
+    background-image:
+        linear-gradient(45deg, transparent 50%, #000000 50%),
+        linear-gradient(135deg, #000000 50%, transparent 50%);
+    background-position:
+        calc(100% - 18px) 50%,
+        calc(100% - 13px) 50%;
+    background-size: 5px 5px;
+    background-repeat: no-repeat;
+}
+
+/* Focus */
+.auth-box select:focus {
+    border-color: #000000;
+}
+
+/* Placeholder option */
+.auth-box select option[value=""] {
+    color: #999;
+}
+
+/* =========================
+   REGISTER FORM – 2 COLUMNS
+========================= */
+
+.auth-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 13px;
+    margin-bottom: 4px;
+    color: #555;
+}
+
+/* Button full width */
+.form-actions {
+    grid-column: span 2;
+}
+
+.form-actions button {
+    width: 100%;
+    margin-top: 10px;
+}
+
+/* Mobile: về 1 cột */
+@media (max-width: 768px) {
+    .auth-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        grid-column: span 1;
+    }
+}
