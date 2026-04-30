@@ -1,0 +1,295 @@
+/* =========================
+   GLOBAL RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Playfair Display', 'Times New Roman', serif;
+}
+
+/* =========================
+   BODY
+========================= */
+body {
+    background-color: #0b0b0b; /* black luxury */
+    color: #f5f5f5;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* =========================
+   PAYMENT CONTAINER
+========================= */
+.payment-container {
+    background: #111;
+    border: 1px solid rgba(212, 175, 55, 0.35); /* gold */
+    padding: 40px 45px;
+    width: 420px;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+    border-radius: 2px;
+}
+
+.payment-wrapper {
+    min-height: calc(100vh - 200px); /* trừ header + footer */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0;
+}
+
+/* =========================
+   TITLE
+========================= */
+.payment-container h2 {
+    font-size: 26px;
+    letter-spacing: 1.8px;
+    color: #d4af37; /* gold */
+    margin-bottom: 25px;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.payment-amount {
+    margin: 18px 0 28px;
+    font-size: 14px;
+    color: #ccc;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.payment-amount span {
+    display: block;
+    margin-top: 6px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #d4af37; /* gold */
+    letter-spacing: 1px;
+}
+/* =========================
+   QR IMAGE
+========================= */
+.payment-container img {
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    padding: 10px;
+    background: #fff;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease;
+}
+
+.payment-container img:hover {
+    transform: scale(1.03);
+}
+
+.qr-box {
+    margin: 25px 0;
+    text-align: center;
+}
+
+.qr-box img {
+    width: 260px;
+    background: #fff;
+    padding: 10px;
+}
+/* =========================
+   BUTTON
+========================= */
+.payment-container button {
+    width: 100%;
+    padding: 14px 0;
+    background: linear-gradient(135deg, #d4af37, #b9962f);
+    border: none;
+    color: #000;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.35s ease;
+}
+
+/* Hover luxury effect */
+.payment-container button:hover {
+    background: #000;
+    color: #d4af37;
+    border: 1px solid #d4af37;
+}
+
+/* =========================
+   SMALL TEXT (OPTIONAL)
+========================= */
+.payment-note {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 20px;
+    letter-spacing: 0.5px;
+}
+
+.payment-page {
+    max-width: 1100px;
+    margin: 60px auto;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    color: #111;
+    font-family: 'Inter', sans-serif;
+}
+
+/* LEFT */
+.payment-left h2,
+.payment-right h2 {
+    font-size: 30px;
+    margin-bottom: 25px;
+    color:#d4af37;
+    text-align: center;
+}
+
+.payment-left h3 {
+    margin: 35px 0 15px;
+    font-size: 18px;
+    color:#d4af37;
+}
+
+.input-group {
+    margin-bottom: 18px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 13px;
+    margin-bottom: 6px;
+    color: #6c6c6c;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    padding: 14px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.pay-btn {
+    margin-top: 30px;
+    width: 100%;
+    padding: 16px;
+    border-radius: 999px;
+    border: none;
+    background: #000;
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.pay-btn:hover {
+    opacity: 0.9;
+}
+
+/* RIGHT */
+.payment-right {
+    background: #f9f9f9;
+    padding: 35px;
+    border-radius: 18px;
+    height: fit-content;
+}
+
+.summary-box {
+    margin-top: 20px;
+}
+
+.summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    font-size: 14px;
+}
+
+.summary-total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 16px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+    margin-top: 15px;
+}
+
+.product-list {
+    margin: 20px 0 25px;
+    padding-bottom: 5px;
+}
+
+.product-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 14px;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.product-qty {
+    font-size: 12px;
+    color: #777;
+    margin-top: 2px;
+}
+
+.product-price {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.order-id {
+    font-size: 13px;
+    color: #777;
+}
+
+.product-price,
+.summary-total span:last-child {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+.amount {
+    font-size: 14px;
+    line-height: 1;
+}
+
+.currency {
+    font-size: 14px;
+    line-height: 1;
+    position: relative;
+    top: -1px; /* tinh chỉnh baseline */
+}
+
+.product-item {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 26px;
+    padding: 6px 0;
+}
+
+.product-price {
+    min-width: 140px;      
+    text-align: right;
+    font-weight: 500;
+}

@@ -1,0 +1,109 @@
+/* ===============================
+   POLICY – LUXURY STYLE
+================================ */
+
+.policy-page {
+    background: radial-gradient(circle at top, #111 0%, #000 60%);
+    padding-bottom: 80px;
+}
+
+.policy-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* HERO */
+.policy-hero {
+    text-align: center;
+    padding: 100px 20px 60px;
+}
+
+.policy-hero h1 {
+    font-size: 40px;
+    letter-spacing: 4px;
+    color: #c9a24d;
+    text-transform: uppercase;
+}
+
+.policy-subtitle {
+    margin-top: 16px;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: #aaa;
+}
+
+/* WRAPPER */
+.policy-wrapper {
+    max-width: 900px;
+    margin: 0 auto 120px;
+    padding: 0 20px;
+}
+
+/* CARD */
+.policy-card {
+    background: linear-gradient(145deg, #0f0f0f, #0a0a0a);
+    border: 1px solid rgba(201,162,77,0.25);
+    border-radius: 20px;
+    padding: 60px 70px;
+    box-shadow:
+        0 30px 60px rgba(0,0,0,0.7),
+        inset 0 0 0 1px rgba(255,255,255,0.02);
+}
+
+/* SECTION */
+.policy-card section {
+    margin-bottom: 48px;
+}
+
+.policy-card h2 {
+    font-size: 18px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.policy-card h2::after {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background: #c9a24d;
+    display: block;
+    margin-top: 10px;
+}
+
+.policy-card p,
+.policy-card li {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #cfcfcf;
+}
+
+.policy-card ul {
+    margin-top: 14px;
+    padding-left: 18px;
+}
+
+.policy-card li {
+    margin-bottom: 10px;
+}
+
+/* CONTACT HIGHLIGHT */
+.policy-contact {
+    background: rgba(201,162,77,0.08);
+    border-left: 3px solid #c9a24d;
+    padding: 28px 32px;
+    border-radius: 12px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .policy-card {
+        padding: 40px 30px;
+    }
+
+    .policy-hero h1 {
+        font-size: 30px;
+    }
+}

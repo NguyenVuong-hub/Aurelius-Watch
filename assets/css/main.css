@@ -1,0 +1,963 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    max-width: 1280px;   /* phù hợp 13–16 inch */
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 24px;     /* không sát mép màn hình */
+}
+
+/* ===== FIXED HEADER ===== */
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+body {
+    padding-top: 110px; /* 40px top-bar + 70px navbar */
+}
+.site-header.scrolled {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ===== TOP BAR ===== */
+.top-bar {
+    background-color: #000;
+    color: #fff;
+    font-size: 14px;
+}
+
+.top-bar-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+}
+
+.top-right a {
+    color: #fff;
+    margin: 0 5px;
+}
+
+.top-right a:hover {
+    text-decoration: underline;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+    background-color: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+}
+
+.logo img {
+    height: 50px;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 50px;
+}
+
+.menu li a {
+    font-weight: 500;
+    color: #000;
+}
+
+.menu li a:hover {
+    color: #c9a24d; /* màu vàng sang */
+}
+
+.nav-icons a {
+    margin-left: 20px;
+    font-size: 18px;
+    color: #000;
+    position: relative;
+}
+
+.nav-icons a:hover {
+    color: #c9a24d;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+    background: linear-gradient(135deg, #c9a24d, #e6c77a);
+    color: #111;
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+/* ===== BANNER ===== */
+/* ===== VIDEO SECTION ===== */
+.video-section {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+}
+
+/* VIDEO */
+.video-section video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+/* LỚP PHỦ TỐI */
+.video-section::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+}
+
+/* TEXT OVERLAY */
+.video-text {
+    position: absolute;
+    left: 80px;
+    bottom: 100px;
+    color: #fff;
+    font-size: 24px;
+    font-weight: 300;
+    margin: 6px 0;
+    
+    white-space: nowrap;
+    z-index: 2;
+    animation: fadeUp 1.2s ease forwards;
+}
+
+/* HIỆU ỨNG NHẸ */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.site-footer {
+    background: #000;
+    color: #fff;
+    padding: 50px 80px 25px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* ===== TOP ===== */
+.footer-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;     
+}
+
+/* LOGO */
+.footer-logo img {
+    width: 320px;
+    object-fit: contain;
+}
+
+/* COLUMNS */
+.footer-columns {
+    display: flex;
+    gap: 100px;
+    flex: 1;
+    justify-content: center;
+    gap: 80px; 
+}
+
+.footer-col {
+    min-width: 180px;
+}
+
+.footer-col h4 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #fff;
+}
+
+/* ===== DIVIDER ===== */
+.footer-divider {
+    height: 1px;
+    background: rgba(255,255,255,0.3);
+    margin: 35px 0 20px;
+}
+
+/* ===== BOTTOM ===== */
+.footer-bottom {
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+}
+
+.user-box {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid #fff;
+}
+
+.logout-btn {
+    color: #fff;
+    font-size: 14px;
+    opacity: 0.85;
+}
+
+.logout-btn:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+/* ===== USER DROPDOWN ===== */
+.user-box {
+    position: relative;
+}
+
+.user-dropdown {
+    cursor: pointer;
+    position: relative;
+}
+
+.user-dropdown .username {
+    color: #fff;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.user-dropdown i {
+    font-size: 12px;
+}
+
+.user-box {
+    position: relative;
+}
+
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.username {
+    cursor: pointer;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* MENU */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    min-width: 140px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: none;
+    z-index: 999;
+}
+
+/* QUAN TRỌNG: hover cả dropdown */
+.user-dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+/* GIỮ hover khi rê chuột */
+.dropdown-menu a {
+    display: block;
+    padding: 10px 14px;
+    color: #333;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background: #f5f5f5;
+}
+/* ===== CHATBOT BUBBLE ===== */
+#chatbot-bubble {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #000000, #1a1a1a, #c9a227);
+
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 9999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+#chatbot-bubble img {
+    width: 50px;
+    height: 50px;
+}
+
+/* ===== CHATBOT BOX ===== */
+#chatbot-box {
+    position: fixed;
+    right: 24px;
+    bottom: 100px;
+    width: 340px;
+    height: 460px;
+
+    background: #080404;
+    border-radius: 14px;
+    box-shadow: 0 12px 40px rgba(240, 72, 72, 0.25);
+
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+
+    z-index: 9999;
+}
+
+/* ===== HEADER ===== */
+.chatbot-header {
+    background: linear-gradient(135deg, #000000, #1a1a1a, #c9a227);
+    color: #fff;
+    padding: 12px 14px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-header button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+/* ===== MESSAGES ===== */
+.chatbot-messages {
+    flex: 1;
+    padding: 12px;
+    overflow-y: auto;
+    background: #f5f5f5;
+}
+
+.bot-message,
+.user-message {
+    max-width: 80%;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 14px;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.bot-message {
+    background: #e0e0e0;
+    align-self: flex-start;
+}
+
+.user-message {
+    background: #000000;
+    color: #fff;
+    align-self: flex-end;
+    margin-left: auto;
+}
+
+/* ===== INPUT ===== */
+.chatbot-input {
+    display: flex;
+    border-top: 1px solid #ddd;
+}
+
+.chatbot-input input {
+    flex: 1;
+    border: none;
+    padding: 10px;
+    outline: none;
+    font-size: 14px;
+}
+
+.chatbot-input button {
+    width: 48px;
+    border: none;
+    background: #000000;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* ===== OVERLAY ===== */
+.birthday-overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(0,0,0,.85), #000);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity .45s ease;
+}
+
+.birthday-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* ===== POPUP ===== */
+.birthday-popup.luxury-dark {
+    width: 460px;
+    background:
+        linear-gradient(180deg, #141414, #0a0a0a);
+    padding: 42px 36px 38px;
+    border-radius: 18px;
+    text-align: center;
+    position: relative;
+
+    box-shadow:
+        0 30px 60px rgba(0,0,0,.7),
+        inset 0 0 0 1px rgba(201,162,77,.35);
+
+    color: #f2f2f2;
+
+    transform: translateY(24px) scale(.96);
+    transition: transform .45s ease;
+    font-family: 'Cormorant Garamond', serif;
+}
+
+.birthday-overlay.show .birthday-popup {
+    transform: translateY(0) scale(1);
+}
+
+/* ===== BRAND ===== */
+.birthday-brand {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #c9a24d;
+    margin-bottom: 18px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+}
+
+/* ===== DIVIDER ===== */
+.birthday-divider {
+    width: 72px;
+    height: 2px;
+    margin: 0 auto 26px;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        #c9a24d,
+        transparent
+    );
+}
+
+/* ===== TITLE ===== */
+.birthday-popup h2 {
+    font-size: 26px;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* ===== MESSAGE ===== */
+.birthday-message {
+    font-size: 15px;
+    line-height: 1.9;
+    color: #d9d9d9;
+}
+
+.birthday-message strong {
+    display: block;
+    margin-top: 8px;
+    font-size: 36px;
+    color: #d4a373;
+    font-weight: 500;
+    font-family: 'Great Vibes', cursive;
+}
+
+/* ===== SIGNATURE ===== */
+.birthday-signature {
+    margin-top: 34px;
+}
+
+.ceo-sign {
+    font-family: 'Playfair Display', serif;
+    font-size: 19px;
+    color: #d4a373;
+    font-style: italic;
+}
+
+.ceo-title {
+    font-size: 11px;
+    color: #b0b0b0;
+    letter-spacing: 1.5px;
+    margin-top: 6px;
+    font-family: 'Inter', sans-serif;
+    text-transform: uppercase;
+}
+
+/* ===== CLOSE ===== */
+.birthday-close {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 22px;
+    color: #777;
+    cursor: pointer;
+    transition: color .2s ease;
+}
+
+.birthday-close:hover {
+    color: #fff;
+}
+
+.birthday-overlay.show .birthday-name {
+    animation: nameGlow 1.2s ease;
+}
+
+@keyframes nameGlow {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===============================
+   USER NOTIFICATION (BELL)
+   Match Search & Cart
+================================ */
+
+/* Wrapper */
+.user-notification {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+    font-size: 18px;
+    color: #000;
+    cursor: pointer;
+}
+
+/* Icon */
+.user-notification i.fa-bell {
+    transition: color .25s ease, transform .25s ease;
+}
+
+/* Hover giống search & cart */
+.user-notification:hover i.fa-bell {
+    color: #c9a24d;
+    transform: translateY(-1px);
+}
+
+/* Badge giống cart-badge */
+.user-notification .notify-badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+
+    background: linear-gradient(135deg, #c9a24d, #e6c77a);
+    color: #111;
+
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+}
+
+/* ===============================
+   DROPDOWN
+================================ */
+
+.user-notification .notify-dropdown {
+    position: absolute;
+    top: 140%;
+    right: 0;
+    width: 320px;
+
+    background: #111;
+    border-radius: 14px;
+
+    box-shadow: 0 18px 45px rgba(0,0,0,0.55);
+    border: 1px solid rgba(201,162,77,0.25);
+
+    display: none;
+    z-index: 999;
+    overflow: hidden;
+}
+
+/* Show dropdown */
+.user-notification.active .notify-dropdown {
+    display: block;
+}
+
+/* Header */
+.notify-header {
+    padding: 14px 18px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .5px;
+
+    color: #c9a24d;
+    background: linear-gradient(180deg, #0f0f0f, #0a0a0a);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+/* ===============================
+   ITEMS
+================================ */
+
+.notify-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 18px;
+
+    font-size: 13px;
+    color: #e0e0e0;
+    text-decoration: none;
+
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    transition: background .25s ease;
+}
+
+.notify-item:last-child {
+    border-bottom: none;
+}
+
+.notify-item:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+/* Icon in item */
+.notify-item i {
+    color: #c9a24d;
+    margin-top: 3px;
+}
+
+/* Unread */
+.notify-item.unread {
+    background: rgba(201,162,77,0.08);
+}
+
+.notify-item.unread strong {
+    font-weight: 600;
+    color: #fff;
+}
+
+/* Time */
+.notify-item small {
+    display: block;
+    margin-top: 4px;
+    font-size: 11px;
+    opacity: .6;
+}
+
+.notify-dropdown {
+    position: absolute;
+    top: 130%;
+    right: 0;
+    width: 320px;
+    background: #0c0c0c;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+    border: 1px solid rgba(212,175,55,0.25);
+    display: none;
+    z-index: 999;
+}
+
+.notify-dropdown.show {
+    display: block;
+}
+
+.notify-dropdown {
+    position: absolute;
+    top: 120%;
+    right: 0;
+    width: 320px;
+    background: #111;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.45);
+    display: none;
+    z-index: 999;
+    overflow: hidden;
+}
+
+.site-footer {
+    background: #000;
+    color: #eee;
+}
+
+/* khối trên */
+.footer-top {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px 40px;
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* logo | 2 cột text */
+    align-items: start;
+}
+
+/* logo bên trái */
+.footer-logo {
+    min-width: 260px;   /* 🔥 giữ không gian logo */
+}
+
+.footer-logo img {
+    width: 220px;       /* chuẩn desktop */
+    max-width: none;    /* ❌ bỏ giới hạn 100% */
+    height: auto;
+}
+
+/* 3 cột giữa – luxury balanced */
+.footer-columns {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
+    gap: 90px;                 /* 🔥 sang nhưng không loãng */
+    justify-content: center;   /* căn giữa tổng thể */
+    align-items: start;
+}
+/* từng cột */
+.footer-col h4 {
+    font-size: 14px;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+    color: #fff;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col li {
+    margin-bottom: 12px;
+}
+
+.footer-col a {
+    color: #ccc;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-col a:hover {
+    color: #c9a24d;
+}
+
+.footer-divider {
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 1px solid rgba(255,255,255,0.15);
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 18px 20px 28px;
+    text-align: center;
+    font-size: 13px;
+    color: #aaa;
+}
+
+/* ===== CHATBOT LUXURY CARD ===== */
+.chatbot-card {
+    background: linear-gradient(145deg, #0e0e0e, #1a1a1a);
+    border: 1px solid rgba(212,175,55,0.35);
+    border-radius: 14px;
+    padding: 16px 18px;
+    color: #f5f5f5;
+    max-width: 260px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+    animation: fadeUp .25s ease;
+}
+
+.chatbot-card-title {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    color: #d4af37; /* gold */
+    margin-bottom: 6px;
+    text-transform: uppercase;
+}
+
+.chatbot-card-desc {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #ddd;
+    margin-bottom: 12px;
+}
+
+.chatbot-btn {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #111;
+    background: linear-gradient(135deg, #d4af37, #f5e18b);
+    transition: all .25s ease;
+}
+
+.chatbot-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 14px rgba(212,175,55,0.5);
+}
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* CART + NOTIFICATION DÙNG CHUNG */
+.nav-icons a,
+.user-notification {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* BADGE DÙNG CHUNG */
+.cart-badge,
+.notify-badge {
+    position: absolute;
+    top: -6px;
+    right: -10px;
+
+    min-width: 18px;
+    height: 18px;
+    padding: 0 5px;
+
+    font-size: 11px;
+    font-weight: 700;
+    border-radius: 999px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===== HEADER SEARCH ===== */
+.header-search {
+    position: absolute;
+    top: 110px;
+    right: 40px;
+
+    width: 280px;
+    padding: 10px 14px;
+
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,.18);
+
+    display: none;
+    z-index: 9999;
+}
+
+.header-search input {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.video-text a {
+    color: inherit;          /* giữ màu chữ */
+    text-decoration: none;   /* bỏ gạch chân */
+}
+
+.video-text a:hover {
+    text-decoration: underline; /* hover nhẹ, sang */
+}

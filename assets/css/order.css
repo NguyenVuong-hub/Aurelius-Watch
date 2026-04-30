@@ -1,0 +1,87 @@
+body {
+    background: #0f0f0f;
+    margin: 0;
+}
+
+/* ===== FIX FOOTER DƯ KHOẢNG ===== */
+body.page-my-orders {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #0f0f0f;
+}
+
+/* Nội dung chính chiếm phần còn lại */
+.page-my-orders .my-orders {
+    flex: 1;
+}
+
+.my-orders {
+    max-width: 1000px;
+    margin: 60px auto 0;   /* ❗ CHỈ margin-top */
+    padding: 0 20px 40px;  /* padding-bottom thay cho margin */
+}
+
+.my-orders h1 {
+    color: #c9a44c;
+    text-align: center;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+}
+
+.order-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 25px 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.order-left p {
+    margin: 6px 0;
+    color: #333;
+}
+
+.order-left strong {
+    color: #000;
+}
+
+.order-status {
+    font-weight: 600;
+    color: #c9a44c;
+}
+
+.order-actions {
+    text-align: right;
+}
+
+.order-actions a,
+.order-actions button {
+    display: inline-block;
+    margin-left: 8px;
+    padding: 8px 14px;
+    border-radius: 6px;
+    font-size: 14px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-detail {
+    background: #000;
+    color: #fff;
+}
+
+.btn-cancel {
+    background: #b71c1c;
+    color: #fff;
+}
+
+.btn-review {
+    background: #c9a44c;
+    color: #000;
+    font-weight: 600;
+}
