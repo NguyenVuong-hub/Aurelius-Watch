@@ -1,0 +1,6 @@
+cat > .gitignore << 'EOF'
+.vs/
+.env
+*.log
+test_db.php
+EOF
