@@ -6,6 +6,7 @@
 -- Thời gian đã tạo: Th1 30, 2026 lúc 02:26 PM
 -- Phiên bản máy phục vụ: 10.4.32-MariaDB
 -- Phiên bản PHP: 8.2.12
+SET SESSION sql_require_primary_key = 0;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
