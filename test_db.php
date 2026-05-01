@@ -2,30 +2,37 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
-echo "Bắt đầu test...<br>";
+try {
+    echo "<b>[1] Kiểm tra thư viện MySQLi:</b> ";
+    if (!function_exists('mysqli_init')) {
+        throw new Exception("THẤT BẠI! Railway chưa cài được thư viện mysqli.");
+    }
+    echo "Thành công!<br>";
 
-// Dùng $_ENV hoặc getenv để chắc chắn lấy được biến
-$host = $_ENV['DB_HOST'] ?? getenv('DB_HOST');
-$user = $_ENV['DB_USER'] ?? getenv('DB_USER');
-$pass = $_ENV['DB_PASS'] ?? getenv('DB_PASS');
-$name = $_ENV['DB_NAME'] ?? getenv('DB_NAME');
-$port = $_ENV['DB_PORT'] ?? getenv('DB_PORT');
+    echo "<b>[2] Đọc biến môi trường Railway:</b> ";
+    $host = getenv('DB_HOST');
+    if (!$host) {
+        throw new Exception("THẤT BẠI! Không đọc được DB_HOST. Hãy kiểm tra lại tab Variables.");
+    }
+    echo "Thành công! (Host: $host)<br>";
 
-if (!$host) {
-    die("❌ Chưa nhận được biến môi trường (DB_HOST) từ Railway. Hãy kiểm tra lại tab Variables!");
-}
+    echo "<b>[3] Gọi kết nối Aiven:</b> ";
+    $conn = mysqli_init();
+    mysqli_ssl_set($conn, NULL, NULL, NULL, NULL, NULL);
+    
+    // Dùng @ để tắt thông báo sập mặc định, tự xử lý bằng code
+    $success = @mysqli_real_connect($conn, $host, getenv('DB_USER'), getenv('DB_PASS'), getenv('DB_NAME'), getenv('DB_PORT'), NULL, MYSQLI_CLIENT_SSL);
+    
+    if (!$success) {
+        throw new Exception("Từ chối kết nối - Lỗi chi tiết: " . mysqli_connect_error());
+    }
+    
+    echo "🎉🎉🎉 THÀNH CÔNG RỰC RỠ! ĐÃ THÔNG VỚI AIVEN!";
 
-$conn = mysqli_init();
-
-// Lệnh chốt hạ: Nạp file chứng chỉ ca.pem vào để Aiven mở cửa
-mysqli_ssl_set($conn, NULL, NULL, __DIR__ . '/ca.pem', NULL, NULL);
-
-echo "Đang gọi kết nối Aiven...<br>";
-$success = mysqli_real_connect($conn, $host, $user, $pass, $name, $port, NULL, MYSQLI_CLIENT_SSL);
-
-if ($success) {
-    echo "🎉 KẾT NỐI OK! DỮ LIỆU ĐÃ THÔNG!";
-} else {
-    echo "❌ LỖI KẾT NỐI: " . mysqli_connect_error();
+} catch (Throwable $e) {
+    echo "<br><br><div style='background:#ffebee; padding:15px; border: 1px solid #f44336;'>";
+    echo "<h3 style='color:#d32f2f; margin-top:0;'>🛑 BẮT ĐƯỢC THỦ PHẠM GÂY SẬP WEB (502):</h3>";
+    echo "<b>Lý do:</b> " . $e->getMessage();
+    echo "</div>";
 }
 ?>
