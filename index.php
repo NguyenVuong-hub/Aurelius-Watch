@@ -1,3 +1,7 @@
+<?php
+echo "Server OK!";
+exit();
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
