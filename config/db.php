@@ -1,26 +1,29 @@
 <?php
 $host     = getenv('DB_HOST');
-$port     = getenv('DB_PORT')  ?: '10460';
+$user     = getenv('DB_USER');
+$pass     = getenv('DB_PASS');
 $dbname   = getenv('DB_NAME');
-$username = getenv('DB_USER');
-$password = getenv('DB_PASS');
+$port     = (int) getenv('DB_PORT');
 
 $conn = mysqli_init();
 
-mysqli_ssl_set($conn, null, null, __DIR__ . '/../ca.pem', null, null);
+// Bỏ qua xác thực certificate
+mysqli_ssl_set($conn, null, null, null, null, null);
 
 mysqli_real_connect(
     $conn,
     $host,
-    $username,
-    $password,
+    $user,
+    $pass,
     $dbname,
-    (int)$port,
+    $port,
     null,
-    MYSQLI_CLIENT_SSL
+    MYSQLI_CLIENT_SSL_DONT_VERIFY_SERVER_CERT
 );
 
 if (mysqli_connect_errno()) {
     die("Kết nối thất bại: " . mysqli_connect_error());
 }
+
+mysqli_set_charset($conn, "utf8mb4");
 ?>
